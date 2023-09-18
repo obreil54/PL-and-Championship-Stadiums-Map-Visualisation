@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>A Map of Information</title>
+    <link href="https://google-developers.appspot.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="stadium_addresses.js"></script>
+    <script>
+      function initialize() {
+        alert("To see the title of a marker, hover over the marker but don't click.");
+
+        var myLatlng = new google.maps.LatLng(37.39361, -122.099263);
+        var mapOptions = {
+          zoom: 3,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+        var markers = [];
+        for (var i = 0; i < stadiumAddresses.length; i++) {
+          var row = stadiumAddresses[i];
+          var newLatlng = new google.maps.LatLng(row[0], row[1]);
+          var marker = new google.maps.Marker({
+            position: newLatlng,
+            map: map,
+            title: row[2]
+          });
+          markers.push(marker);
+        }
+
+        var markerCluster = new MarkerClusterer(map, markers);
+      }
+    </script>
+  </head>
+  <body onload="initialize()">
+    <div id="map_canvas" style="height: 500px"></div>
+    <p><b>About this Map</b></p>
+    <p>Premier League and Championship Stadiums
+  </body>
+</html>
