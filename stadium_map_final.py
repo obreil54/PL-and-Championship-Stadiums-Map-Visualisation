@@ -25,7 +25,7 @@ CREATE TABLE Teams (
 ''')
 
 url = 'https://api.football-data.org/v4/competitions/PL/teams?season=2022'
-headers = {'X-Auth-Token': '0b1b7dbef4664958b236688e270bc34e'}
+headers = {'X-Auth-Token': 'ENTER_API_KEY'}
 
 response = requests.get(url, headers=headers)
 
@@ -86,7 +86,7 @@ for team in teams:
     
 print('Successfully Retrieved Championship Data')
 
-api_key = 'AIzaSyBtDkV8MZAUxNLdGR7YXYZhSONFANl9pFM'
+api_key = 'ENTER_YOUR_API_KEY'
 
 conn = sqlite3.connect('footballvenues.sqlite')
 cur = conn.cursor()
