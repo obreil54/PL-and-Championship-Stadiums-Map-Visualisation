@@ -1,1 +1,1 @@
-# Some tite (edit later)
+# Some title (edit later)
